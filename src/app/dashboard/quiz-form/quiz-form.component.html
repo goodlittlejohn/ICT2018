@@ -1,0 +1,42 @@
+<form #quizForm="ngForm" (ngSubmit)="onSubmit(quizForm)">
+  <input type="hidden" name="key" #key="ngModel" [(ngModel)]="quizService.selectedQuiz.key">
+  <div class="form-group">
+    <label>Question</label>
+    <input class="form-control" name="question" #question="ngModel" [(ngModel)]="quizService.selectedQuiz.question" placeholder="Question"
+      required>
+  </div>
+  <div class="form-group">
+    <label>Answer 1</label>
+    <input class="form-control" name="answer1" #answer1="ngModel" [(ngModel)]="quizService.selectedQuiz.answer1" placeholder="Answer 1">
+  </div>
+  <div class="form-group">
+    <label>Answer 2</label>
+    <input class="form-control" name="answer2" #answer2="ngModel" [(ngModel)]="quizService.selectedQuiz.answer2" placeholder="Answer 2">
+  </div>
+  <div class="form-group">
+    <label>Answer 3</label>
+    <input class="form-control" name="answer3" #answer3="ngModel" [(ngModel)]="quizService.selectedQuiz.answer3" placeholder="Answer 3">
+  </div>
+  <div class="form-group">
+    <label>Answer 4</label>
+    <input class="form-control" name="answer4" #answer4="ngModel" [(ngModel)]="quizService.selectedQuiz.answer4" placeholder="Answer 4">
+  </div>
+  <div class="form-group">
+    <label>Right Answer</label>
+    <input class="form-control" name="rightAnswer" #rightAnswer="ngModel" [(ngModel)]="quizService.selectedQuiz.rightAnswer"
+      placeholder="Right Answer">
+  </div>
+  <div class="form-group">
+    <label>Points</label>
+    <input class="form-control" name="points" #points="ngModel" [(ngModel)]="quizService.selectedQuiz.points" placeholder="Points">
+  </div>
+  <div class="form-group">
+    <label>Level</label>
+    <input class="form-control" name="level" #level="ngModel" [(ngModel)]="quizService.selectedQuiz.level" placeholder="Level">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default" [disabled]="!quizForm.valid">Submit</button>
+    <button type="button" class="btn btn-default" *ngIf="quizService.selectedQuiz.key!=null" (click)="onDelete(quizForm)">Delete</button>
+    <button type="button" class="btn btn-default" (click)="resetForm(quizForm)">Reset</button>
+  </div>
+</form>
